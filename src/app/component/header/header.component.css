@@ -1,0 +1,33 @@
+/*Create variables*/
+:root {
+  --color1: #f2f2f2;
+}
+
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color1);
+  ;
+  text-align: center;
+  gap: 20px;
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.header-container .title {
+  color: #0D6EFD;
+}
+
+.header-container .title span {
+  color: #F79945;
+}
+
+.header-container .banner {
+  border-radius: 20px;
+  background: var(--color1);
+}
