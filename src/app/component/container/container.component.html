@@ -1,4 +1,10 @@
 <section class="container">
   <ng-content></ng-content>
   <app-header></app-header>
+
+  @for (letter of alfabet; track letter) {
+  <app-separator>{{letter.toUpperCase()}}</app-separator>
+
+  }
+
 </section>
