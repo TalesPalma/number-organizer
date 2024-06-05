@@ -7,8 +7,11 @@
 
   @for (letter of filterAlfabet(); track letter) {
   <app-separator>{{letter.toUpperCase()}}</app-separator>
-  @for (contact of filterContactsWithLetter(letter) ; track contact.id){
+
+  @for (contact of filterContactsWithLetter(letter.toLowerCase()) ; track contact.id){
   <app-contact [name]="contact.name" [number]="contact.Telefone"></app-contact>
   }
+
+
   }
 </section>
