@@ -2,12 +2,13 @@
   <ng-content></ng-content>
   <app-header></app-header>
 
-  @for (letter of alfabet; track letter) {
-  <app-separator>{{letter.toUpperCase()}}</app-separator>
+  <input class="search" type="search" name="search" placeholder="Search" [(ngModel)]='filterText'>
 
+
+  @for (letter of filterAlfabet(); track letter) {
+  <app-separator>{{letter.toUpperCase()}}</app-separator>
   @for (contact of filterContactsWithLetter(letter) ; track contact.id){
   <app-contact [name]="contact.name" [number]="contact.Telefone"></app-contact>
   }
-
   }
 </section>
