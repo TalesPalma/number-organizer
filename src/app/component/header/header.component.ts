@@ -14,6 +14,8 @@ export class HeaderComponent {
   isTransform!: boolean;
 
 
+
+
   mudarImage() {
     if (!this.isTransform) {
       this.imageUrl = "/assets/goku-transform.svg";

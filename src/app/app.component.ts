@@ -10,5 +10,4 @@ import { ContainerComponent } from './component/container/container.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-
 }
