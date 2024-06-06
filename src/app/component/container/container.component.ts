@@ -42,5 +42,10 @@ export class ContainerComponent {
   }
 
 
+  deleteData() {
+    this.contacts.pop();
+  }
+
+
 
 }
