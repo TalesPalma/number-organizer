@@ -31,3 +31,25 @@
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px #000
 }
+
+
+.header-container button {
+  padding: 20px;
+  background: #549FE8;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 0px #000;
+  font-size: 14px;
+  text-shadow: 20px;
+  font-style: italic;
+  text-transform: uppercase;
+  border: 2px solid white;
+}
+
+
+.dialog-class {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 100px;
+}

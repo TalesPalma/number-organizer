@@ -1,4 +1,11 @@
 <header class="header-container">
-  <img src="/assets/goku.svg" alt="banner" class="banner">
+  <img src={{imageUrl}} alt="banner" class="banner">
   <h1 class="title">Organize,<span>connect,</span>AhhhhhHHHH!!</h1>
+
+
+  <button (click)="onClickButton()" type="button">Add New Contact!!</button>
+  <dialog #myDialog class="dialog-class">
+    <app-form></app-form>
+  </dialog>
+
 </header>

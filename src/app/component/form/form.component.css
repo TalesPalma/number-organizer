@@ -1,0 +1,40 @@
+.form-container {
+  padding: 150px;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.form-container input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  border-radius: 10px;
+
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.form-container textarea {
+  padding: 40px;
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.form-container .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-items: cente;
+  justify-content: space-between;
+  margin-top: 20px;
+
+}
+
+.form-container .buttons button {
+  padding: 15px 30px 15px 30px;
+  background: #549FE8;
+  ;
+  border-radius: 20px;
+}
