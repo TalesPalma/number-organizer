@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormComponent } from '../form/form.component';
 
 @Component({
@@ -9,15 +9,19 @@ import { FormComponent } from '../form/form.component';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  @ViewChild('myDialog') dialog!: ElementRef;
-  @ViewChild('myButton') button!: ElementRef;
 
   imageUrl: string = "/assets/goku.svg"
+  isTransform!: boolean;
 
-  onClickButton() {
-    this.dialog.nativeElement.show();
+
+  mudarImage() {
+    if (!this.isTransform) {
+      this.imageUrl = "/assets/goku-transform.svg";
+      this.isTransform = true;
+    } else {
+      this.imageUrl = "/assets/goku.svg";
+      this.isTransform = false;
+    }
   }
-
-
 
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -9,10 +9,7 @@ import { Component, ElementRef, Input } from '@angular/core';
 })
 export class FormComponent {
 
-  constructor(private elementRef: ElementRef) { }
-  closeDialog() {
 
-  }
 
 
 
