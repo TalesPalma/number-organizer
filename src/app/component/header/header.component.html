@@ -1,9 +1,11 @@
 <header class="header-container">
-  <img src={{imageUrl}} alt="banner" class="banner">
+  <div class="gokuzinho">
+    <button [disabled]='buttonDisable' (click)="startEfects()">Click me!!</button>
+    <img [src]='srcImage' alt="banner" class="banner">
+  </div>
   <h1 class="title">Organize,<span>connect,</span>AhhhhhHHHH!!</h1>
 
 
-  <button type="button" (click)="mudarImage()">Add New Contact!!</button>
-  <app-form> </app-form>
+  <button type="button" (click)="openDialog()">Add New Contact!!</button>
 
 </header>

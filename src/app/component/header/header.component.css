@@ -46,10 +46,19 @@
 }
 
 
-.dialog-class {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 100px;
+.header-container .gokuzinho {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container .gokuzinho button {
+  width: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-color: blue;
+  font-weight: 200px;
+  color: blue;
 }

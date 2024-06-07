@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormComponent } from '../form/form.component';
-
+import {
+  MatDialog,
+} from '@angular/material/dialog'
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -10,20 +12,25 @@ import { FormComponent } from '../form/form.component';
 })
 export class HeaderComponent {
 
-  imageUrl: string = "/assets/goku.svg"
-  isTransform!: boolean;
+  srcImage = "assets/goku.svg"
+  buttonDisable = false;
+  constructor(public dialog: MatDialog) { }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FormComponent, {
+      height: '600px',
+      width: '600px',
+    });
+  }
 
-
-
-  mudarImage() {
-    if (!this.isTransform) {
-      this.imageUrl = "/assets/goku-transform.svg";
-      this.isTransform = true;
-    } else {
-      this.imageUrl = "/assets/goku.svg";
-      this.isTransform = false;
-    }
+  startEfects() {
+    this.buttonDisable = true;
+    let audio = new Audio();
+    audio.src = 'assets/saiyan.mp3';
+    audio.load();
+    audio.play();
+    this.srcImage = "assets/goku-transform.svg"
+    console.log("teste")
   }
 
 }

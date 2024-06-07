@@ -1,21 +1,19 @@
-<dialog #myDialog>
-  <form class="form-container">
-    <label for="name">Name:</label>
-    <input type="text" name="name" value="" placeholder="Type your name">
-    <label for="number">Telephone:</label>
-    <input type="tel" name="number" value="" placeholder="Type your number">
-    <label for="email">Email:</label>
-    <input type="email" name="email" value="" placeholder="Type your email">
-    <label for="dataBird">DateBird:</label>
-    <input type="date" name="dateBird" value="" placeholder="Your HappyBird">
-    <label for="url">Url:</label>
-    <input type="url" name="socialMidia" value="" placeholder="Yours social midias">
-    <label>Obs:</label>
-    <textarea>
-    </textarea>
-    <section class="buttons">
-      <button type="button">Salvar</button>
-      <button type="button">Cancelar</button>
-    </section>
-  </form>
-</dialog>
+<form class="form-container">
+  <label for="name">Name:</label>
+  <input type="text" name="name" value="" placeholder="Type your name">
+  <label for="number">Telephone:</label>
+  <input type="tel" name="number" value="" placeholder="Type your number">
+  <label for="email">Email:</label>
+  <input type="email" name="email" value="" placeholder="Type your email">
+  <label for="dataBird">DateBird:</label>
+  <input type="date" name="dateBird" value="" placeholder="Your HappyBird">
+  <label for="url">Url:</label>
+  <input type="url" name="socialMidia" value="" placeholder="Yours social midias">
+  <label>Obs:</label>
+  <textarea>
+  </textarea>
+  <section class="buttons">
+    <button type="button">Salvar</button>
+    <button type="button" (click)="cancelButton()">Cancelar</button>
+  </section>
+</form>
