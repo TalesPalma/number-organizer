@@ -1,19 +1,19 @@
-<form class="form-container">
+<form class="form-container" [formGroup]="contactForm" (ngSubmit)="submitContact()">
   <label for="name">Name:</label>
-  <input type="text" name="name" value="" placeholder="Type your name">
+  <input type="text" name="name" value="" placeholder="Type your name" formControlName="nome">
   <label for="number">Telephone:</label>
-  <input type="tel" name="number" value="" placeholder="Type your number">
+  <input type="tel" name="number" value="" placeholder="Type your number" formControlName="telefone">>
   <label for="email">Email:</label>
-  <input type="email" name="email" value="" placeholder="Type your email">
+  <input type="email" name="email" value="" placeholder="Type your email" formControlName="email">>
   <label for="dataBird">DateBird:</label>
-  <input type="date" name="dateBird" value="" placeholder="Your HappyBird">
+  <input type="date" name="dateBird" value="" placeholder="Your HappyBird" formControlName="deteBird">>
   <label for="url">Url:</label>
-  <input type="url" name="socialMidia" value="" placeholder="Yours social midias">
+  <input type="url" name="socialMidia" value="" placeholder="Yours social midias" formControlName="socialMidia">>
   <label>Obs:</label>
-  <textarea>
+  <textarea formControlName="obs">
   </textarea>
   <section class="buttons">
-    <button type="button">Salvar</button>
+    <button type="submit">Salvar</button>
     <button type="button" (click)="cancelButton()">Cancelar</button>
   </section>
 </form>

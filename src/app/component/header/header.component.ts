@@ -18,8 +18,6 @@ export class HeaderComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(FormComponent, {
-      height: '600px',
-      width: '600px',
     });
   }
 
