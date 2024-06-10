@@ -37,3 +37,8 @@
   background: #549FE8;
   border-radius: 20px;
 }
+
+.validation {
+  color: red;
+  margin-left: 10px;
+}
