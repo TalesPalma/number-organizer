@@ -1,19 +1,41 @@
 <form class="form-container" [formGroup]="contactForm" (ngSubmit)="submitContact()">
   <label for="name">Name:</label>
   <input type="text" name="name" value="" placeholder="Type your name" formControlName="nome">
+  @if(contactForm.get('nome')?.errors && contactForm.get('nome')?.touched){
+  <div class="msg-error">
+    Required field
+  </div>
+  }
+
   <label for="number">Telephone:</label>
-  <input type="tel" name="number" value="" placeholder="Type your number" formControlName="telefone">>
+  <input type="tel" name="number" value="" placeholder="Type your number" formControlName="telefone">
+  @if(contactForm.get('telefone')?.errors?.['required'] && contactForm.get('telefone')?.touched){
+  <div class="msg-error">
+    Required field
+  </div>
+  }
   <label for="email">Email:</label>
-  <input type="email" name="email" value="" placeholder="Type your email" formControlName="email">>
+  <input type="email" name="email" value="" placeholder="Type your email" formControlName="email">
+  @if(contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.touched){
+  <div class="msg-error">
+    Required field
+  </div>
+  }
+  @if(contactForm.get('email')?.errors?.['email']){
+  <div class="msg-error">
+    Format invalid
+  </div>
+  }
+
   <label for="dataBird">DateBird:</label>
-  <input type="date" name="dateBird" value="" placeholder="Your HappyBird" formControlName="deteBird">>
+  <input type="date" name="dateBird" value="" placeholder="Your HappyBird" formControlName="deteBird">
   <label for="url">Url:</label>
-  <input type="url" name="socialMidia" value="" placeholder="Yours social midias" formControlName="socialMidia">>
+  <input type="url" name="socialMidia" value="" placeholder="Yours social midias" formControlName="socialMidia">
   <label>Obs:</label>
   <textarea formControlName="obs">
   </textarea>
   <section class="buttons">
-    <button type="submit">Salvar</button>
+    <button type="submit" [disabled]='contactForm.invalid'>Salvar</button>
     <button type="button" (click)="cancelButton()">Cancelar</button>
   </section>
 </form>
