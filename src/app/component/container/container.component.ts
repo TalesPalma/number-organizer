@@ -27,7 +27,9 @@ export class ContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contacts = this.contactServico.getContacts();
+    this.contactServico.getContacts().subscribe(listContacts => {
+      this.contacts = listContacts;
+    });
   }
 
   filterContactsWithLetter(letter: string): Contact[] {
@@ -46,9 +48,6 @@ export class ContainerComponent implements OnInit {
   }
 
 
-  deleteData() {
-    this.contacts.pop();
-  }
 
 
 

@@ -31,7 +31,9 @@ export class FormComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.contactList = this.contactService.getContacts()
+    this.contactService.getContacts().subscribe(listContacts => {
+      this.contactList = listContacts;
+    });
   }
   cancelButton(): void {
     this.dialogRef.close();
@@ -39,19 +41,15 @@ export class FormComponent implements OnInit {
 
   submitContact() {
 
-    this.salveDates({
-      id: 1,
+    this.contactService.salvarContacts({
+      id: 0,
       name: this.contactForm.get('nome')?.value,
       Telefone: this.contactForm.get('telefone')?.value
+    }).subscribe(() => {
+      this.dialogRef.close();
     })
-    this.dialogRef.close();
   }
 
-  salveDates(newContact: Contact) {
-    this.contactList.push(newContact)
-    console.log(this.contactList)
-    localStorage.setItem('contacts', JSON.stringify(this.contactList));
-  }
 
 
 

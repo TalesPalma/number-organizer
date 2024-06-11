@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../model/Contact';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -7,28 +8,16 @@ import { Contact } from '../model/Contact';
 })
 export class ContactsService {
 
-  private contacts!: Contact[];
-
-  constructor() {
-
-    const contactsLocalStorageString: string | null = localStorage.getItem('contacts');
-
-    if (contactsLocalStorageString != null) {
-      console.log("Tem que cair aqui")
-      this.contacts = JSON.parse(contactsLocalStorageString)
-    }
-    else {
-      this.contacts = [{
-        id: 1,
-        name: "tales",
-        Telefone: "9122178999"
-      }]
-    }
-
+  private readonly API = "http://localhost:3000/contacts"
+  constructor(private http: HttpClient) {
   }
 
   getContacts() {
-    return this.contacts
+    return this.http.get<Contact[]>(this.API)
+  }
+
+  salvarContacts(newContact: Contact) {
+    return this.http.post<Contact>(this.API, newContact);
   }
 
 }
