@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialogContent } from '@angular/material/dialog';
-import data from '../data.json';
 import { Contact } from '../../model/Contact';
 import { ContactsService } from '../../services/contacts.service';
 
@@ -15,8 +14,8 @@ import { ContactsService } from '../../services/contacts.service';
 })
 export class FormComponent implements OnInit {
   contactForm!: FormGroup;
-  dateReference = data;
   contactList!: Contact[];
+  lastId!: number;
   constructor(
     public dialogRef: MatDialogRef<FormComponent>,
     private contactService: ContactsService
@@ -41,8 +40,9 @@ export class FormComponent implements OnInit {
 
   submitContact() {
 
+    this.lastId = this.contactList.length as number;
     this.contactService.salvarContacts({
-      id: 0,
+      id: this.lastId + 1,
       name: this.contactForm.get('nome')?.value,
       Telefone: this.contactForm.get('telefone')?.value
     }).subscribe(() => {

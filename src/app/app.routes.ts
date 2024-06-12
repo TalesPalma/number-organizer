@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: ContainerComponent
   },
   {
-    path: 'perfil',
+    path: 'perfil/:id',
     component: PerfilComponent
   },
   {

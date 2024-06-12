@@ -11,4 +11,5 @@ import { RouterLink } from '@angular/router';
 export class ContactComponent {
   @Input() name: string = "undefined";
   @Input() number: string = "undefined";
+  @Input() id!: number;
 }

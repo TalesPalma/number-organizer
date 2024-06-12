@@ -1,6 +1,6 @@
 <section class="contact">
   <ul>
-
+    <h1>{{id}}</h1>
     <li class="name">Name
       <ul>
         <strong>
@@ -15,8 +15,8 @@
       </ul>
     </li>
     <li class="button">
-      <button>
-        <img src="/assets/pencil-square.png" alt="error" routerLink="/Perfil">
+      <button [routerLink]="['/perfil', id]">
+        <img src="/assets/pencil-square.png" alt="error">
       </button>
       <button>
         <img src="/assets/trash.png" alt="">

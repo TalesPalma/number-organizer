@@ -1,23 +1,18 @@
 {
   "contacts": [
     {
-      "id": 1,
+      "id": "1",
       "name": "tales",
       "Telefone": "922217899"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Batman",
       "Telefone": "92212312"
     },
     {
       "id": 3,
-      "name": "tales",
-      "Telefone": "999217899"
-    },
-    {
-      "id": 3,
-      "name": "Novo contato",
+      "name": "Asa noturna",
       "Telefone": "999217899"
     }
   ]
