@@ -42,7 +42,7 @@ export class FormComponent implements OnInit {
 
     this.lastId = this.contactList.length as number;
     this.contactService.salvarContacts({
-      id: this.lastId + 1,
+      id: (this.lastId + 1).toString(),
       name: this.contactForm.get('nome')?.value,
       Telefone: this.contactForm.get('telefone')?.value
     }).subscribe(() => {

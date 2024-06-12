@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../model/Contact';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,23 +13,27 @@ export class ContactsService {
   constructor(private http: HttpClient) {
   }
 
-  getContacts() {
+  getContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.API)
   }
 
-  getContactsById(id: number) {
-    return this.http.get<Contact>(this.API)
+  getContactsById(id: number): Observable<Contact> {
+    const url = `${this.API}/${id}`;
+    return this.http.get<Contact>(url)
   }
 
-  salvarContacts(newContact: Contact) {
+  salvarContacts(newContact: Contact): Observable<Contact> {
     return this.http.post<Contact>(this.API, newContact);
   }
 
-  deleteContacts() {
-
+  deleteContacts(id: number): Observable<Contact> {
+    const url = `${this.API}/${id}`;
+    return this.http.delete<Contact>(url);
   }
 
-  updateContacts() {
+  updateContacts(id: string, newContact: Contact): Observable<Contact> {
+    const url = `${this.API}/${id}`;
+    return this.http.put<Contact>(url, newContact)
   }
 
 

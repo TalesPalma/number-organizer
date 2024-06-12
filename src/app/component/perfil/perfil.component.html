@@ -2,8 +2,12 @@
   <div class="card">
     <div class="loader"></div>
     <div class="text">
-      <h3>Nome</h3>
-      <h3>Telefone</h3>
+      <h3>{{nome}}</h3>
+      <h3>{{telefone}}</h3>
+      <div class="buttons-container">
+        <button class="buttons" type="button" (click)="deleteContact()">Deletar</button>
+        <button class="buttons" type="button" (click)="editContact()">Editar</button>
+      </div>
     </div>
   </div>
 </section>
