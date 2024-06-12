@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ContactsService } from '../../services/contacts.service';
-import { Dialog } from '@angular/cdk/dialog';
 import { FormComponent } from '../form/form.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -41,7 +40,7 @@ export class PerfilComponent implements OnInit {
   }
 
   editContact() {
-    this.dialog.open(FormComponent)
+    this.dialog.open(FormComponent, { data: this.id })
   }
 
 

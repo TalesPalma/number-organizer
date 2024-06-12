@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatDialogRef, MatDialogContent } from '@angular/material/dialog';
+import { MatDialogRef, MatDialogContent, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contact } from '../../model/Contact';
 import { ContactsService } from '../../services/contacts.service';
 
@@ -16,9 +16,11 @@ export class FormComponent implements OnInit {
   contactForm!: FormGroup;
   contactList!: Contact[];
   lastId!: number;
+  idEdit!: string;
   constructor(
     public dialogRef: MatDialogRef<FormComponent>,
-    private contactService: ContactsService
+    private contactService: ContactsService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.contactForm = new FormGroup({
       nome: new FormControl('tales', Validators.required),
@@ -30,16 +32,25 @@ export class FormComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.idEdit = this.data;
+    console.log(this.idEdit); //Id bem por aqui
     this.contactService.getContacts().subscribe(listContacts => {
       this.contactList = listContacts;
     });
+    if (this.idEdit) {
+      this.contactService.getContactsById(parseInt(this.idEdit)).subscribe(item => {
+        this.contactForm.patchValue({
+          nome: item.name,
+          telefone: item.Telefone
+        })
+      })
+    }
   }
   cancelButton(): void {
     this.dialogRef.close();
   }
 
   submitContact() {
-
     this.lastId = this.contactList.length as number;
     this.contactService.salvarContacts({
       id: (this.lastId + 1).toString(),
@@ -50,7 +61,16 @@ export class FormComponent implements OnInit {
     })
   }
 
-
+  putContact() {
+    this.contactService.updateContacts(this.idEdit, {
+      id: (this.lastId + 1).toString(),
+      name: this.contactForm.get('nome')?.value,
+      Telefone: this.contactForm.get('telefone')?.value
+    }).subscribe(() => {
+      console.log("Dados alterados com sucesso");
+      this.dialogRef.close()
+    })
+  }
 
 
 }

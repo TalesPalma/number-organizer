@@ -30,7 +30,12 @@
   <textarea formControlName="obs">
   </textarea>
   <section class="buttons">
+
+    @if(this.idEdit){
+    <button type="button" (click)="putContact()">Edit</button>
+    }@else{
     <button type="submit" [disabled]='contactForm.invalid'>Salvar</button>
+    }
     <button type="button" (click)="cancelButton()">Cancelar</button>
   </section>
 </form>
