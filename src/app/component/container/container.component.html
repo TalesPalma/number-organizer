@@ -9,7 +9,7 @@
   <app-separator>{{letter.toUpperCase()}}</app-separator>
 
   @for (contact of filterContactsWithLetter(letter.toLowerCase()) ; track contact.id){
-  <app-contact [name]="contact.name" [number]="contact.Telefone" [id]="contact.id"></app-contact>
+  <app-contact [image]="contact.avatar" [name]="contact.name" [number]="contact.Telefone"></app-contact>
   }
 
 
