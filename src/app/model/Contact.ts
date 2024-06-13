@@ -1,7 +1,8 @@
 export interface Contact {
   id: string,
   name: string,
-  Telefone: string
+  Telefone: string,
+  avatar: string | ArrayBuffer
 }
 
 

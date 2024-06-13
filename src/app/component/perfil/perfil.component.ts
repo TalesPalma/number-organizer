@@ -16,6 +16,7 @@ export class PerfilComponent implements OnInit {
   nome: String = "undefined"
   telefone: String = "undefined"
   id!: string;
+  image!: string | ArrayBuffer;
   constructor(private activatedRouter: ActivatedRoute,
     private contactServer: ContactsService,
     private router: Router,
@@ -27,6 +28,7 @@ export class PerfilComponent implements OnInit {
     this.contactServer.getContactsById(parseInt(this.id!)).subscribe(item => {
       this.nome = item.name;
       this.telefone = item.Telefone;
+      this.image = item.avatar;
       console.log(item.name);
     });
   }

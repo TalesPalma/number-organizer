@@ -24,6 +24,7 @@ export class FormComponent implements OnInit {
   ) {
     this.contactForm = new FormGroup({
       nome: new FormControl('tales', Validators.required),
+      avatar: new FormControl('', Validators.required),
       telefone: new FormControl('999217899', Validators.required),
       email: new FormControl('tales@gmail.com', [Validators.required, Validators.email]),
       deteBird: new FormControl('2024-06-04'),
@@ -55,9 +56,11 @@ export class FormComponent implements OnInit {
     this.contactService.salvarContacts({
       id: (this.lastId + 1).toString(),
       name: this.contactForm.get('nome')?.value,
-      Telefone: this.contactForm.get('telefone')?.value
+      Telefone: this.contactForm.get('telefone')?.value,
+      avatar: this.contactForm.get('avatar')?.value
     }).subscribe(() => {
       this.dialogRef.close();
+      window.location.reload()
     })
   }
 
@@ -65,11 +68,25 @@ export class FormComponent implements OnInit {
     this.contactService.updateContacts(this.idEdit, {
       id: (this.lastId + 1).toString(),
       name: this.contactForm.get('nome')?.value,
-      Telefone: this.contactForm.get('telefone')?.value
+      Telefone: this.contactForm.get('telefone')?.value,
+      avatar: this.contactForm.get('avatar')?.value
     }).subscribe(() => {
       console.log("Dados alterados com sucesso");
       this.dialogRef.close()
     })
+  }
+
+  readFile(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.result) {
+          this.contactForm.get('avatar')?.setValue(reader.result)
+        }
+      }
+      reader.readAsDataURL(file);
+    }
   }
 
 

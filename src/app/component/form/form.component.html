@@ -1,4 +1,25 @@
 <form class="form-container" [formGroup]="contactForm" (ngSubmit)="submitContact()">
+
+
+  <div class="image-contact" role="button">
+    <img src="assets/imageadd.svg">
+    <input type="file" accept="image/*" id="avatar" required (change)="readFile($event)">
+    <label for="avatar">Add your image</label>
+  </div>
+  @if(contactForm.get('avatar')?.value !==''){
+  <figure><img [src]="contactForm.get('avatar')?.value" alt=""></figure>
+  }
+  @if(contactForm.get('avatar')?.errors?.['required'] && contactForm.get('avatar')?.touched){
+  <div class="validation">
+    Required field
+  </div>
+  }
+  @if(contactForm.get('avatar')?.errors?.['avatar']){
+  <div class="validation">
+    Invalid img format
+  </div>
+  }
+
   <label for="name">Name:</label>
   <input type="text" name="name" value="" placeholder="Type your name" formControlName="nome">
   @if(contactForm.get('nome')?.errors?.['required']){
@@ -23,9 +44,9 @@
   </div>
   }
   <label for="dataBird">DateBird:</label>
-  <input type="date" name="dateBird" value="" placeholder="Your HappyBird" formControlName="deteBird">>
+  <input type="date" name="dateBird" value="" placeholder="Your HappyBird" formControlName="deteBird">
   <label for="url">Url:</label>
-  <input type="url" name="socialMidia" value="" placeholder="Yours social midias" formControlName="socialMidia">>
+  <input type="url" name="socialMidia" value="" placeholder="Yours social midias" formControlName="socialMidia">
   <label>Obs:</label>
   <textarea formControlName="obs">
   </textarea>

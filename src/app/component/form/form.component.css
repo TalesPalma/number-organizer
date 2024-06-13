@@ -7,12 +7,13 @@
   display: flex;
   justify-items: center;
   flex-direction: column;
+  justify-content: center;
   border: 2px solid black;
 }
 
 .form-container input {
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 5px;
   width: 200px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0px #000;
@@ -41,4 +42,58 @@
 .validation {
   color: red;
   margin-left: 10px;
+}
+
+
+.image-contact {
+  width: 100%;
+  height: 104px;
+  border: 1px dotted #ADB5BD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.image-contact label {
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #6C757D;
+  margin: 0;
+  cursor: pointer;
+}
+
+.image-contact input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-contact img {
+  width: 50px;
+  height: 50px;
+}
+
+figure {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin-top: 8px;
+}
+
+figure img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px #000;
 }

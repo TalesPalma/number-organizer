@@ -1,6 +1,12 @@
 <section class="perfil-container">
   <div class="card">
-    <div class="loader"></div>
+    <div class="img">
+      @if(this.image){
+      <img [src]="this.image">
+      }@else{
+      <img src="assets/notimage">
+      }
+    </div>
     <div class="text">
       <h3>{{nome}}</h3>
       <h3>{{telefone}}</h3>
